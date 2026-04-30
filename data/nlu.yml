@@ -1,0 +1,79 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+    - good morning
+    - good afternoon
+    - hello there
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you
+    - thanks bye
+
+- intent: ask_help
+  examples: |
+    - help
+    - what can you do
+    - how can you help me
+    - what do you help with
+
+- intent: ask_fees
+  examples: |
+    - fees
+    - fees and funding
+    - tell me about fees
+    - i need help with tuition fees
+    - funding information
+    - money support
+
+- intent: ask_moodle
+  examples: |
+    - moodle
+    - what is moodle
+    - help me with moodle
+    - moodle support
+    - learning materials
+
+- intent: ask_timetable
+  examples: |
+    - timetable
+    - class timetable
+    - my schedule
+    - show my timetable
+    - lecture schedule
+
+- intent: ask_support
+  examples: |
+    - student support
+    - support
+    - i need support
+    - where can i get help
+    - help with student services
+
+- intent: ask_library
+  examples: |
+    - library
+    - library help
+    - reading lists
+    - borrowing books
+    - study support
+
+- intent: ask_email
+  examples: |
+    - email
+    - student email
+    - university email
+    - help with email
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot
+    - are you human
+    - who are you

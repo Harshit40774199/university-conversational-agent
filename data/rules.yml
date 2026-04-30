@@ -1,0 +1,52 @@
+version: "3.1"
+
+rules:
+- rule: greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: help
+  steps:
+  - intent: ask_help
+  - action: utter_help
+
+- rule: fees
+  steps:
+  - intent: ask_fees
+  - action: utter_fees
+
+- rule: moodle
+  steps:
+  - intent: ask_moodle
+  - action: utter_moodle
+
+- rule: timetable
+  steps:
+  - intent: ask_timetable
+  - action: utter_timetable
+
+- rule: support
+  steps:
+  - intent: ask_support
+  - action: utter_support
+
+- rule: library
+  steps:
+  - intent: ask_library
+  - action: utter_library
+
+- rule: email
+  steps:
+  - intent: ask_email
+  - action: utter_email
+
+- rule: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_bot_challenge

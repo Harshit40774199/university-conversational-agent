@@ -1,0 +1,48 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_help
+  - ask_fees
+  - ask_moodle
+  - ask_timetable
+  - ask_support
+  - ask_library
+  - ask_email
+  - bot_challenge
+
+responses:
+  utter_greet:
+    - text: "Hello. I am Uni Assist. I can help with modules, Moodle, fees and funding, timetable, library, email, and support questions."
+
+  utter_goodbye:
+    - text: "Goodbye. If you need more help, just ask."
+
+  utter_help:
+    - text: "I can help with module information, Moodle, timetable, fees and funding, library, email, and general student support."
+
+  utter_fees:
+    - text: "For fees and funding, I can provide general guidance. You can also ask your university finance team for account-specific advice."
+
+  utter_moodle:
+    - text: "Moodle is your learning platform for module materials, coursework, and announcements."
+
+  utter_timetable:
+    - text: "You can ask about your timetable or module schedule. For module-specific timetable details, include the module name or code."
+
+  utter_support:
+    - text: "Student support can include academic help, wellbeing support, IT support, and administrative guidance."
+
+  utter_library:
+    - text: "The library can help with reading lists, borrowing, study spaces, and academic resources."
+
+  utter_email:
+    - text: "For student email, you can ask about access, login support, or general email help."
+
+  utter_bot_challenge:
+    - text: "I am Uni Assist, a university support chatbot."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

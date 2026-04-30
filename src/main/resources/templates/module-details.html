@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${module.name}">Module Details</title>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #1e293b;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            margin-top: 25px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #334155;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            margin-right: 10px;
+            padding: 10px 16px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .button.secondary {
+            background: #475569;
+        }
+
+        .chat-btn {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 16px;
+            background: #10b981;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="badge" th:text="${module.code}">CODE</div>
+
+    <h1 th:text="${module.name}">Module Name</h1>
+
+    <div class="section">
+        <p><span class="label">Lecturer:</span> <span th:text="${module.lecturer}"></span></p>
+        <p><span class="label">Credits:</span> <span th:text="${module.credits}"></span></p>
+        <p><span class="label">Timetable:</span> <span th:text="${module.timetable}"></span></p>
+        <p><span class="label">Deadline:</span> <span th:text="${module.deadline}"></span></p>
+        <p><span class="label">Book:</span> <span th:text="${module.book}"></span></p>
+    </div>
+
+    <div class="section">
+        <h3>Description</h3>
+        <p th:text="${module.description}"></p>
+    </div>
+
+    <div class="section">
+        <h3>Assessment</h3>
+        <p th:text="${module.assessment}"></p>
+    </div>
+
+    <div class="section">
+        <a class="button" th:href="${module.moodleUrl}" target="_blank">Open Moodle</a>
+        <a class="button secondary" th:href="${module.resourceUrl}" target="_blank">Resources</a>
+    </div>
+
+    <!-- Chatbot trigger -->
+    <div class="chat-btn" onclick="askModule()">
+        Ask Uni Assist about this module
+    </div>
+
+</div>
+
+<script th:inline="javascript">
+function askModule() {
+    const message = "Tell me about " + "[[${module.name}]]";
+
+    fetch("/api/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            userId: "web_user",
+            message: message
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert("Uni Assist:\n\n" + data.reply);
+    })
+    .catch(() => {
+        alert("Error connecting to chatbot");
+    });
+}
+</script>
+
+</body>
+</html>
